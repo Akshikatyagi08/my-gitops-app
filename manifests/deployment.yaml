@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gitops-node-app
+  namespace: default      # ✅ ADD THIS LINE
   labels:
     app: gitops-node
 spec:
@@ -14,9 +15,4 @@ spec:
       labels:
         app: gitops-node
     spec:
-      containers:
-        - name: node-app
-          imagePullPolicy: Never
-          image: gitops-node-app
-          ports:
-            - containerPort: 3000
+      containers
