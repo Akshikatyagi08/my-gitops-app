@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitops-node-app
+  labels:
+    app: gitops-node
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitops-node
+  template:
+    metadata:
+      labels:
+        app: gitops-node
+    spec:
+      containers:
+        - name: node-app
+          imagePullPolicy: Never
+          image: gitops-node-app
+          ports:
+            - containerPort: 3000
